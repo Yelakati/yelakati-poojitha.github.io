@@ -1,0 +1,233 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    background-color: #141414;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e50914;
+    letter-spacing: 2px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #e50914;
+}
+
+/* Banner */
+.banner {
+    height: 80vh;
+    background: url('https://image.tmdb.org/t/p/original/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.banner::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top, rgba(20, 20, 20, 1) 10%, rgba(20, 20, 20, 0) 90%);
+}
+
+.banner-content {
+    z-index: 2;
+    max-width: 600px;
+}
+
+.banner-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    animation: fadeInDown 1.2s ease;
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    animation: fadeInUp 1.2s ease;
+}
+
+.play-btn, .info-btn {
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 4px;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.play-btn {
+    background-color: #fff;
+    color: #000;
+}
+
+.info-btn {
+    background-color: rgba(109, 109, 110, 0.7);
+    color: #fff;
+}
+
+.play-btn:hover {
+    transform: scale(1.05);
+}
+
+.info-btn:hover {
+    background-color: rgba(109, 109, 110, 0.9);
+}
+
+/* Movie Rows */
+.movie-section {
+    margin: 20px 0;
+    padding: 0 50px;
+}
+
+.movie-section h2 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.movie-row {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.movie-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.movie-container::-webkit-scrollbar {
+    display: none;
+}
+
+.movie-container img {
+    width: 200px;
+    margin-right: 10px;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-container img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.8);
+}
+
+/* Scroll Buttons */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(20, 20, 20, 0.6);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 5;
+    transition: background 0.3s ease;
+}
+
+.scroll-btn:hover {
+    background: rgba(20, 20, 20, 0.9);
+}
+
+.scroll-btn.left {
+    left: 0;
+}
+
+.scroll-btn.right {
+    right: 0;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .banner-content h1 {
+        font-size: 2.5rem;
+    }
+    .banner-content p {
+        font-size: 1rem;
+    }
+    .movie-container img {
+        width: 160px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    .nav-links {
+        display: none;
+    }
+    .banner {
+        padding-left: 20px;
+    }
+    .movie-container img {
+        width: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-content h1 {
+        font-size: 1.8rem;
+    }
+    .banner-content p {
+        font-size: 0.9rem;
+    }
+    .play-btn, .info-btn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+}
